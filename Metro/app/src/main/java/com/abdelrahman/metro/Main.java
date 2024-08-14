@@ -91,6 +91,14 @@ public class Main {
             "Maspero", "Kit Kat","Elsodan", "embaba", "Albohee", "Alkomiaa Alarabia", "Altareek Aldaeree", "rod elfarag","Eltawfiqia", "wadi Elneel", "game3t eldwal",
             "bolak Aldakror", "Cairo university"));
 
+            public ArrayList<Double>lat = new ArrayList<Double>(Arrays.asList(
+                    29.8414,29.8568,29.8660,29.8794,29.8994,29.9108,29.9230,29.9372,29.9508,29.9618
+            ));
+
+        public ArrayList<Double>lon = new ArrayList<Double>(Arrays.asList(
+                    31.3000,31.3033,31.3029,31.3042,31.3195,31.3240,31.3280,31.3304,31.3330,31.3348
+        ));
+
 
     public  final ArrayList<String> firstLine = new ArrayList<>(Arrays.asList("Helwan", "Ain.Helwan", "Helwan University",
             "Wadi hof", "Hadik Helwan", "Elmasara", "Tora Elasmant", "Kotcika",
