@@ -9,6 +9,8 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+
+
     }
 }
 dependencyResolutionManagement {
@@ -17,8 +19,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven { url "https://www.jitpack.io" }
     }
 }
 
-rootProject.name = "Metro"
+rootProject.name = "Cairo Metro"
 include ':app'

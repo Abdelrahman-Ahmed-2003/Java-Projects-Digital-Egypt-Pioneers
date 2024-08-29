@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'com.abdelrahman.metro'
+    namespace 'com.example.cairometro'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.abdelrahman.metro"
-        minSdk 24
+        applicationId "com.example.cairometro"
+        minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures{
+        viewBinding true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -29,8 +33,13 @@ android {
 }
 
 dependencies {
-    implementation 'com.daimajia.androidanimations:library:2.4@aar'
+    def work_version = "2.9.1"
+
+    // (Java only)
+    implementation "androidx.work:work-runtime:$work_version"
     implementation 'com.github.nisrulz:sensey:1.9.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'com.daimajia.androidanimations:library:2.4@aar'
     implementation 'com.github.mumayank:AirLocation:2.5.2'
     implementation libs.appcompat
     implementation libs.material
