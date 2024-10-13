@@ -10,8 +10,9 @@ class DataCubit extends Cubit<DataState> {
   List<Area> destenations = [];
   String carKind = '';
   int ccKind = 0;
-  String bestRoute = '';
+  String route = '';
   double gasCost = 0.0;
+  double price1LGas = 9.25;
   double totalDistance = 0.0;
   bool _isData = false;
 
@@ -20,11 +21,9 @@ class DataCubit extends Cubit<DataState> {
       print('set showwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
       _isData = isData;
       emit(DataLoading());
-    }
-    else {
+    } else {
       _isData = isData;
     }
-    
   }
 
   bool getSHow() {
@@ -53,16 +52,32 @@ class DataCubit extends Cubit<DataState> {
     emit(DataLoading());
   }
 
-  getLocation() async {
+  Future<String> getLocation() async {
     try {
       CurrentLocation location = CurrentLocation();
       position = await location.determinePosition();
       emit(DataLoading());
+
+      if (position != null) {
+        List<Placemark> placemarks = await placemarkFromCoordinates(
+          position!.latitude,
+          position!.longitude,
+        );
+
+        if (placemarks.isNotEmpty) {
+          Placemark place = placemarks[0];
+          String address =
+              "${place.street} ${place.locality} ${place.postalCode} ${place.country}";
+          print('Address: $address');
+          return address;
+        } else {
+          return 'No address available';
+        }
+      } else {
+        return 'Failed to get position';
+      }
     } catch (e) {
-      print(
-          'error in get location.tostringgggggggggggggggggggggggggggggggggggggggggggggggg');
-      print(e.toString());
-      emit(DataError(e.toString()));
+      return 'Error in get location';
     }
   }
 
@@ -81,6 +96,18 @@ class DataCubit extends Cubit<DataState> {
       default:
         return 10.0; // Default to Sedan
     }
+  }
+
+  String convertRoute() {
+    String route = '';
+    for (int i = 0; i < destenations.length; i++) {
+      if (i == destenations.length - 1) {
+        route += destenations[i].name;
+      } else {
+        route += '${destenations[i].name} ,';
+      }
+    }
+    return route;
   }
 }
 

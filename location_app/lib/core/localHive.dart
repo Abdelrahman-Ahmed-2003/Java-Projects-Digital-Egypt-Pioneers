@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:location_app/core/area.dart';
 
 part 'localHive.g.dart';
 
@@ -10,7 +9,7 @@ class StoreLocation extends HiveObject {
   @HiveField(1)
   int ccKind = 0;
   @HiveField(2)
-  String bestRoute = '';
+  String route = '';
   @HiveField(3)
   double gasCost = 0.0;
   @HiveField(4)
@@ -20,7 +19,7 @@ class StoreLocation extends HiveObject {
       {
       required this.carKind,
       required this.ccKind,
-      required this.bestRoute,
+      required this.route,
       required this.gasCost,
       required this.totalDistance,
       });

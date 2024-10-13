@@ -19,7 +19,7 @@ class StoreLocationAdapter extends TypeAdapter<StoreLocation> {
     return StoreLocation(
       carKind: fields[0] as String,
       ccKind: fields[1] as int,
-      bestRoute: fields[2] as String,
+      route: fields[2] as String,
       gasCost: fields[3] as double,
       totalDistance: fields[4] as double,
     );
@@ -34,7 +34,7 @@ class StoreLocationAdapter extends TypeAdapter<StoreLocation> {
       ..writeByte(1)
       ..write(obj.ccKind)
       ..writeByte(2)
-      ..write(obj.bestRoute)
+      ..write(obj.route)
       ..writeByte(3)
       ..write(obj.gasCost)
       ..writeByte(4)

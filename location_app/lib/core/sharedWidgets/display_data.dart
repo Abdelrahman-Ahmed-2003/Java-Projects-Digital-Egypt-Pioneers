@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DisplayData extends StatelessWidget {
-  String bestRoute;
+  String route;
   double totalDistance;
   double gasCost;
   String carKind;
   int ccKind;
   DisplayData(
       {super.key,
-      required this.bestRoute,
+      required this.route,
       required this.totalDistance,
       required this.gasCost,
       required this.carKind,
@@ -28,7 +28,7 @@ class DisplayData extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Best Route: $bestRoute',
+              'Route: $route',
               style: const TextStyle(fontSize: 20),
             ),
             Text(

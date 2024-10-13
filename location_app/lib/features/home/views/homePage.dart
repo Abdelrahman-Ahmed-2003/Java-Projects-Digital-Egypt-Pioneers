@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController gasCostController = TextEditingController();
     var cubit = context.watch<DataCubit>();
     return Scaffold(
       backgroundColor: Colors.black,
@@ -31,13 +32,14 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 20),
                 const DisplayDest(),
                 const SizedBox(height: 20),
-                Calculate(),
-                CarInfo(),
+                
+                CarInfo(gasCostController: gasCostController,),
+                Calculate(gasCostController: gasCostController,),
                 BlocBuilder<DataCubit, DataState>(
                   builder: (context, state) {
                     return cubit.getSHow()
                         ? DisplayData(
-                            bestRoute: cubit.bestRoute,
+                            route: cubit.convertRoute(),
                             totalDistance: cubit.totalDistance,
                             gasCost: cubit.gasCost,
                             carKind: '',

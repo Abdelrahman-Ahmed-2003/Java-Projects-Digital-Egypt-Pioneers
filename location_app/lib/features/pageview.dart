@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:location_app/features/history/views/histroy.dart';
 import 'package:location_app/features/home/views/homePage.dart';
 
-import 'home/modelV/destenationCubit.dart';
 
 class PageViewP extends StatefulWidget {
   const PageViewP({super.key});
@@ -22,12 +20,6 @@ class _PageViewPState extends State<PageViewP> {
     _pageController.jumpToPage(index);
   }
 
-  @override
-  void initState() {
-    super.initState();
-    var cubit = context.read<DataCubit>();
-    cubit.getLocation();
-  }
   @override
   Widget build(BuildContext context) {
     

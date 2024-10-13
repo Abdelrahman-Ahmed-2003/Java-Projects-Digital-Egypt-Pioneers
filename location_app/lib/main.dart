@@ -14,6 +14,8 @@ void main() async {
   //await Hive.deleteBoxFromDisk('task_box');
   Hive.registerAdapter(StoreLocationAdapter());
   await Hive.openBox<StoreLocation>("calc_box");
+  await Hive.openBox<double>("gasPrice");
+  await DealingWithHive.getGasPrice();
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider<DataCubit>(

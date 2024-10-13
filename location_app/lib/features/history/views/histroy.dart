@@ -14,6 +14,7 @@ class HistoryPage extends StatelessWidget {
       ),
       backgroundColor: Colors.black,
       body: Container(
+        padding: const EdgeInsets.all(15),
         color: Colors.black,
         child: FutureBuilder(
           future: DealingWithHive.getData(), // Ensure data is loaded
@@ -27,7 +28,7 @@ class HistoryPage extends StatelessWidget {
               return ListView.separated(
                 itemBuilder: (context, index) {
                   return DisplayData(
-                    bestRoute: data[index].bestRoute,
+                    route: data[index].route,
                     totalDistance: data[index].totalDistance,
                     gasCost: data[index].gasCost,
                     carKind: data[index].carKind,

@@ -31,7 +31,25 @@ class CurrentLocation {
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
+    print('Location permissions are granteddddddddddddddddddddddddddd');
 
     return await Geolocator.getCurrentPosition();
   }
+
+// Future<String> getAddressFromLatLng(Position position) async {
+//     try {
+//       List<Placemark> placemarks = await placemarkFromCoordinates(
+//           position.latitude, position.longitude);
+
+//       if (placemarks.isNotEmpty) {
+//         Placemark place = placemarks[0];
+//         return "${place.street}, ${place.locality}, ${place.postalCode}, ${place.country}";
+//       }
+//       return "No address available";
+//     } catch (e) {
+//       print(e);
+//       return "Error occurred while getting address";
+//     }
+//   }
+
 }
